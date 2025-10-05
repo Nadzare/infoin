@@ -66,7 +66,9 @@
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@id/iv_article_image"
             app:layout_constraintStart_toEndOf="@id/iv_article_image"
-            tools:src="@drawable/logo_bbc_news" /> <TextView
+            tools:src="@drawable/logo_bbc_news" />
+
+        <TextView
         android:id="@+id/tv_article_source"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
