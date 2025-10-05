@@ -3,21 +3,25 @@
     <!-- Tema utama aplikasi -->
     <style name="Theme.InfoIn" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Warna utama -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_700</item>
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Warna background -->
         <item name="android:windowBackground">@color/white</item>
 
         <!-- Toolbar / status bar -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/purple_700</item>
-        <item name="android:navigationBarColor">@color/purple_500</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blue_700</item>
+        <item name="android:navigationBarColor">@color/blue_500</item>
     </style>
 
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="BottomNavigationView.ActiveIndicator" parent="">
+        <item name="android:color">@color/blue_500</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
