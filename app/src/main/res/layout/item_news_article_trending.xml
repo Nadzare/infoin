@@ -2,14 +2,15 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="280dp"
+    android:layout_height="280dp"
     android:layout_marginEnd="12dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="280dp" android:layout_height="wrap_content">
+        android:layout_width="280dp"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_trending_article_image"
@@ -28,7 +29,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="@color/grey"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_trending_article_image"
             tools:text="Europe" />
@@ -43,6 +44,9 @@
             android:ellipsize="end"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textStyle="bold"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@id/tv_trending_article_category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,16 +62,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_trending_article_title"
-            tools:src="@drawable/logo_bbc_news" /> <TextView
-        android:id="@+id/tv_trending_article_source_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        app:layout_constraintStart_toEndOf="@id/iv_trending_article_source_icon"
-        app:layout_constraintTop_toTopOf="@id/iv_trending_article_source_icon"
-        app:layout_constraintBottom_toBottomOf="@id/iv_trending_article_source_icon"
-        tools:text="BBC News" />
+            tools:src="@drawable/logo_bbc_news" />
+
+        <TextView
+            android:id="@+id/tv_trending_article_source_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toEndOf="@id/iv_trending_article_source_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_trending_article_source_icon"
+            app:layout_constraintBottom_toBottomOf="@id/iv_trending_article_source_icon"
+            tools:text="BBC News" />
 
         <TextView
             android:id="@+id/tv_trending_article_time"
@@ -75,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/grey"
             app:layout_constraintStart_toEndOf="@id/tv_trending_article_source_name"
             app:layout_constraintTop_toTopOf="@id/iv_trending_article_source_icon"
             app:layout_constraintBottom_toBottomOf="@id/iv_trending_article_source_icon"
@@ -88,8 +96,8 @@
             android:src="@drawable/ic_bookmark_border"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="2dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/iv_trending_article_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_trending_article_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
