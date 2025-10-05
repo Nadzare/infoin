@@ -1,6 +1,7 @@
 package com.octanews.infoin
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.octanews.infoin.databinding.ActivityMainBinding
@@ -24,12 +25,30 @@ class MainActivity : AppCompatActivity() {
         // Atur listener untuk Bottom Navigation Bar
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.navigation_home -> setCurrentFragment(HomeFragment())
-                R.id.navigation_explore -> setCurrentFragment(ExploreFragment())
-                R.id.navigation_bookmark -> setCurrentFragment(BookmarkFragment())
-                R.id.navigation_profile -> setCurrentFragment(ProfileFragment())
+                R.id.navigation_home -> {
+                    setCurrentFragment(HomeFragment())
+                    binding.fabAddNews.hide()
+                }
+                R.id.navigation_explore -> {
+                    setCurrentFragment(ExploreFragment())
+                    binding.fabAddNews.hide()
+                }
+                R.id.navigation_bookmark -> {
+                    setCurrentFragment(BookmarkFragment())
+                    binding.fabAddNews.hide()
+                }
+                R.id.navigation_profile -> {
+                    setCurrentFragment(ProfileFragment())
+                    binding.fabAddNews.show()
+                }
             }
             true
+        }
+
+        // Listener untuk FAB Add News
+        binding.fabAddNews.setOnClickListener {
+            // TODO: Implement add news functionality
+            Toast.makeText(this, "Add News feature coming soon!", Toast.LENGTH_SHORT).show()
         }
     }
 
