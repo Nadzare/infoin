@@ -50,8 +50,8 @@ class LatestNewsAdapter(
             .error(R.drawable.ic_image_placeholder)
             .into(holder.image)
 
-        val logoResId = sourceLogoMap[article.source_id] ?: R.drawable.ic_google // Gunakan placeholder jika tidak ditemukan
-        holder.sourceIcon.setImageResource(logoResId)
+        // val logoResId = sourceLogoMap[article.source_id] ?: R.drawable.ic_google // Gunakan placeholder jika tidak ditemukan
+        // holder.sourceIcon.setImageResource(logoResId)
 
         // Aksi saat seluruh item di-klik
         holder.itemView.setOnClickListener {
@@ -75,7 +75,7 @@ class LatestNewsAdapter(
         val time: TextView = itemView.findViewById(R.id.tv_article_time)
         // --- VIEW HOLDER PERLU MENGENALI IKON BOOKMARK ---
         val bookmarkIcon: ImageView = itemView.findViewById(R.id.iv_bookmark) // <-- INI YANG KURANG
-        val sourceIcon: ImageView = itemView.findViewById(R.id.iv_article_source_icon) // 3. TAMBAHKAN REFERENSI KE IMAGEVIEW LOGO
+        // val sourceIcon: ImageView = itemView.findViewById(R.id.iv_article_source_icon) // 3. TAMBAHKAN REFERENSI KE IMAGEVIEW LOGO
 
     }
 }
