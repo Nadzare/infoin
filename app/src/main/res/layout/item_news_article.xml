@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_article_image"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_bookmark_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_article_source_icon"
+            app:layout_constraintTop_toTopOf="@id/tv_article_category" />
+
+        <TextView
+            android:id="@+id/tv_article_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintStart_toEndOf="@id/iv_article_image"
+            app:layout_constraintTop_toTopOf="@id/iv_article_image"
+            tools:text="Europe" />
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv_article_category"
+            app:layout_constraintStart_toEndOf="@id/iv_article_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Ukraine's President Zelensky to BBC: Blood money being paid..." />
+
+        <ImageView
+            android:id="@+id/iv_article_source_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_article_image"
+            app:layout_constraintStart_toEndOf="@id/iv_article_image"
+            tools:src="@drawable/logo_bbc_news" /> <TextView
+        android:id="@+id/tv_article_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        app:layout_constraintStart_toEndOf="@id/iv_article_source_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_article_source_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_article_source_icon"
+        tools:text="BBC News" />
+
+        <TextView
+            android:id="@+id/tv_article_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:layout_constraintStart_toEndOf="@id/tv_article_source"
+            app:layout_constraintTop_toTopOf="@id/iv_article_source_icon"
+            app:layout_constraintBottom_toBottomOf="@id/iv_article_source_icon"
+            tools:text="14m ago" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

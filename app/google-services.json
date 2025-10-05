@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "856961816595",
+    "project_id": "infoin-d47ab",
+    "storage_bucket": "infoin-d47ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856961816595:android:0941edd98ddc6b4398c7e6",
+        "android_client_info": {
+          "package_name": "com.octanews.infoin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856961816595-jlhdsejc7unj3i97nog8lqt4otf4j5ne.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.octanews.infoin",
+            "certificate_hash": "e6db2b652c3d32b1fac177830648603069dfc771"
+          }
+        },
+        {
+          "client_id": "856961816595-ilpgjv5v3vshgbeq2uh567c5ldsrtmvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQZ66UHwgj1T2a5KMGslrXgih7nyPh_Ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856961816595-ilpgjv5v3vshgbeq2uh567c5ldsrtmvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

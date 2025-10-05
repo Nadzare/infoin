@@ -1,9 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.InfoIn" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <!-- Tema utama aplikasi -->
+    <style name="Theme.InfoIn" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Warna utama -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Warna background -->
+        <item name="android:windowBackground">@color/white</item>
+
+        <!-- Toolbar / status bar -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/purple_700</item>
+        <item name="android:navigationBarColor">@color/purple_500</item>
     </style>
 
-    <style name="Theme.InfoIn" parent="Base.Theme.InfoIn" />
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/Theme.InfoIn</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_load</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+    </style>
+
 </resources>

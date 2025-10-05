@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="topics_list">
+        <item>business</item>
+        <item>entertainment</item>
+        <item>health</item>
+        <item>science</item>
+        <item>sports</item>
+        <item>technology</item>
+        <item>top</item>
+    </string-array>
+
+
+    <string-array name="news_sources_name_list">
+        <item>CNBC</item>
+        <item>VICE</item>
+        <item>Vox</item>
+        <item>BBC News</item>
+        <item>SCMP</item>
+        <item>CNN</item>
+        <item>MSN</item>
+        <item>CNET</item>
+        <item>USA Today</item>
+        <item>TIME</item>
+        <item>BuzzFeed</item>
+        <item>Daily Mail</item>
+    </string-array>
+
+    <string-array name="news_sources_logo_list">
+        <item>logo_cnbc</item>
+        <item>logo_vice</item>
+        <item>logo_vox</item>
+        <item>logo_bbc_news</item>
+        <item>logo_scmp</item>
+        <item>logo_cnn</item>
+        <item>logo_msn</item>
+        <item>logo_cnet</item>
+        <item>logo_usa_today</item>
+        <item>logo_time</item>
+        <item>logo_buzzfeed</item>
+        <item>logo_daily_mail</item>
+    </string-array>
+</resources>
