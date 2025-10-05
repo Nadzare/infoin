@@ -2,6 +2,7 @@ package com.octanews.infoin.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -80,6 +81,7 @@ class NewsListActivity : AppCompatActivity() {
                     binding.progressBar.visibility = View.GONE
                     if (response.isSuccessful) {
                         response.body()?.results?.let {
+                            Log.d("NewsData", "API Response: ${it.toString()}")
                             articles.addAll(it)
                             newsAdapter.notifyDataSetChanged()
                         }

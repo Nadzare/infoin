@@ -17,6 +17,21 @@ class LatestNewsAdapter(
     private val onBookmarkClick: (NewsArticle) -> Unit
 ) : RecyclerView.Adapter<LatestNewsAdapter.ViewHolder>() {
 
+    private val sourceLogoMap = mapOf(
+        "detik" to R.drawable.ic_detikcom,
+        "liputan6" to R.drawable.ic_liputan6,
+        "mediaindonesia" to R.drawable.ic_mediindo,
+        "republikain" to R.drawable.ic_republika_semangka_1,
+        "rm_id" to R.drawable.ic_rm_id,
+        "sindonews" to R.drawable.ic_sindonews,
+        "tribunnews" to R.drawable.ic_tribunews
+        // Jika tidak ditemukan, gunakan placeholder
+
+        // Contoh: pastikan Anda memiliki file ini di res/drawable
+                // Contoh
+        // Tambahkan semua mapping source_id dan logo yang Anda butuhkan
+    )
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_news_article, parent, false)
         return ViewHolder(view)
@@ -34,6 +49,9 @@ class LatestNewsAdapter(
             .placeholder(R.drawable.ic_image_placeholder)
             .error(R.drawable.ic_image_placeholder)
             .into(holder.image)
+
+        val logoResId = sourceLogoMap[article.source_id] ?: R.drawable.ic_google // Gunakan placeholder jika tidak ditemukan
+        holder.sourceIcon.setImageResource(logoResId)
 
         // Aksi saat seluruh item di-klik
         holder.itemView.setOnClickListener {
@@ -57,5 +75,7 @@ class LatestNewsAdapter(
         val time: TextView = itemView.findViewById(R.id.tv_article_time)
         // --- VIEW HOLDER PERLU MENGENALI IKON BOOKMARK ---
         val bookmarkIcon: ImageView = itemView.findViewById(R.id.iv_bookmark) // <-- INI YANG KURANG
+        val sourceIcon: ImageView = itemView.findViewById(R.id.iv_article_source_icon) // 3. TAMBAHKAN REFERENSI KE IMAGEVIEW LOGO
+
     }
 }
