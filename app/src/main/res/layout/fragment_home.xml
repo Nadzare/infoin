@@ -7,17 +7,20 @@
     android:background="@drawable/home_background_gradient"
     tools:context=".ui.main.HomeFragment">
 
+    <!-- Enhanced Custom Toolbar with Shadow -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/custom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="20dp"
+        android:elevation="4dp"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_logo_main"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
+            android:layout_width="130dp"
+            android:layout_height="42dp"
             android:src="@drawable/ic_logo_main"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,26 +28,37 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:contentDescription="App Logo" />
 
-        <ImageView
-            android:id="@+id/iv_notification"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_notification"
+        <!-- Notification with Badge Effect -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:contentDescription="Notifications" />
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_notification"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_notification"
+                android:contentDescription="Notifications" />
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Enhanced Search Card with Better Shadow and Styling -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/search_card"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
+        android:layout_height="52dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="6dp"
         app:cardBackgroundColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/custom_toolbar"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,29 +68,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:paddingHorizontal="16dp">
+            android:paddingHorizontal="18dp"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:src="@drawable/ic_search"
-                android:alpha="0.6"
+                android:alpha="0.7"
+                app:tint="?attr/colorPrimary"
                 android:contentDescription="Search Icon" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginHorizontal="8dp"
-                android:text="Search"
-                android:textSize="16sp"
-                android:alpha="0.6"/>
+                android:layout_marginHorizontal="12dp"
+                android:text="Search for news, topics..."
+                android:textSize="15sp"
+                android:textColor="@android:color/darker_gray"
+                android:alpha="0.8"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:background="@android:color/darker_gray"
+                android:alpha="0.2"
+                android:layout_marginEnd="12dp"/>
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:src="@drawable/ic_filter"
-                android:alpha="0.6"
+                android:alpha="0.7"
+                app:tint="?attr/colorPrimary"
                 android:contentDescription="Filter Icon" />
 
         </LinearLayout>
@@ -85,8 +110,10 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:fillViewport="true"  app:layout_constraintTop_toBottomOf="@id/search_card"
+        android:layout_marginTop="20dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/search_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -95,97 +122,208 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="16dp">
+            android:paddingBottom="24dp">
 
+            <!-- Trending Section - Simple & Clean -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginHorizontal="16dp">
-                <TextView
-                    android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Trending"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_see_all_trending"
-                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="4dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🔥 Trending"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:letterSpacing="0.01" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/blue_200">
+
+                        <TextView
+                            android:id="@+id/tv_see_all_trending"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="See all"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:textColor="?attr/colorPrimary"/>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_trending_news"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="See all"
-                    android:textColor="?attr/colorPrimary"/>
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="8dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/item_news_article_trending"/>
+
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_trending_news"
+            <!-- Latest Section with Enhanced Design -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
-                android:clipToPadding="false"
-                android:paddingHorizontal="16dp"
-                android:orientation="horizontal"
-                tools:listitem="@layout/item_news_article_trending"/>
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp">
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Latest"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/tv_see_all_latest"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="See all"
-                    android:textColor="?attr/colorPrimary"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout_categories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginHorizontal="12dp"
-                android:background="@color/blue_200"
-                app:tabMode="scrollable"
-                app:tabIndicatorColor="@color/black"
-                app:tabSelectedTextColor="@color/black"
-                app:tabTextColor="@android:color/darker_gray"
-                app:tabBackground="@drawable/tab_background" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="4dp">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_latest_news"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:clipToPadding="false"
-                android:paddingHorizontal="16dp"
-                android:nestedScrollingEnabled="false"
-                tools:listitem="@layout/item_news_article" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="📰 Latest"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:letterSpacing="0.01" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/blue_200">
+
+                            <TextView
+                                android:id="@+id/tv_see_all_latest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="See all"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:paddingHorizontal="16dp"
+                                android:paddingVertical="8dp"
+                                android:textColor="?attr/colorPrimary"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <!-- Enhanced Tab Layout with Better Spacing -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="4dp"
+                        android:scrollbars="none">
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tab_layout_categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            app:tabMode="scrollable"
+                            app:tabGravity="start"
+                            app:tabIndicatorHeight="3dp"
+                            app:tabIndicatorColor="?attr/colorPrimary"
+                            app:tabIndicatorFullWidth="false"
+                            app:tabSelectedTextColor="?attr/colorPrimary"
+                            app:tabTextColor="@android:color/darker_gray"
+                            app:tabTextAppearance="@style/TextAppearance.AppCompat.Body2"
+                            app:tabPaddingStart="0dp"
+                            app:tabPaddingEnd="0dp"
+                            app:tabMinWidth="72dp"
+                            app:tabMaxWidth="120dp"
+                            app:tabRippleColor="@null" />
+
+                    </HorizontalScrollView>
+
+                    <!-- Divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@android:color/darker_gray"
+                        android:alpha="0.1"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_latest_news"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        tools:listitem="@layout/item_news_article" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!-- Enhanced Progress Bar with Background -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/progress_container"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:visibility="gone"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/white"
         tools:visibility="visible"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:indeterminateTint="?attr/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Loading..."
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
