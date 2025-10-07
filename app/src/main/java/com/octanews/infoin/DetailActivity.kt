@@ -21,15 +21,15 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ambil URL artikel yang dikirim dari HomeFragment
+
         val url = intent.getStringExtra(EXTRA_URL)
 
-        // Atur toolbar
+
         binding.toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        // Atur WebView
+
         binding.webView.webViewClient = object : WebViewClient() {
             // Tampilkan progress bar saat halaman mulai dimuat
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {

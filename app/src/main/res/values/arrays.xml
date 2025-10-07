@@ -14,30 +14,46 @@
     <string-array name="news_sources_name_list">
         <item>CNBC</item>
         <item>VICE</item>
+        <item>Sindonews</item>
         <item>Vox</item>
         <item>BBC News</item>
+        <item>Detikcom</item>
         <item>SCMP</item>
         <item>CNN</item>
+        <item>RM.id</item>
         <item>MSN</item>
+        <item>Liputan6</item>
         <item>CNET</item>
+        <item>Tribun News</item>
         <item>USA Today</item>
+        <item>Media Indonesia</item>
+        <item>Republik Semangka</item>
         <item>TIME</item>
         <item>BuzzFeed</item>
         <item>Daily Mail</item>
+
     </string-array>
 
     <string-array name="news_sources_logo_list">
         <item>logo_cnbc</item>
         <item>logo_vice</item>
+        <item>ic_sindonews</item>
         <item>logo_vox</item>
         <item>logo_bbc_news</item>
+        <item>ic_detikcom</item>
         <item>logo_scmp</item>
         <item>logo_cnn</item>
+        <item>ic_rm_id</item>
         <item>logo_msn</item>
+        <item>ic_liputan6</item>
         <item>logo_cnet</item>
+        <item>ic_tribunews</item>
         <item>logo_usa_today</item>
+        <item>ic_mediindo</item>
+        <item>ic_republika_semangka_1</item>
         <item>logo_time</item>
         <item>logo_buzzfeed</item>
         <item>logo_daily_mail</item>
+
     </string-array>
 </resources>

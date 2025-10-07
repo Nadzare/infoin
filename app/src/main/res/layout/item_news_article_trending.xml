@@ -2,65 +2,79 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_width="280dp"
+    android:layout_height="280dp"
     android:layout_marginEnd="12dp"
-    app:cardCornerRadius="16dp"
+    app:cardCornerRadius="12dp"
     app:cardElevation="8dp"
     app:cardBackgroundColor="@color/blue_200">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_width="280dp"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_trending_article_image"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="160dp"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
-        <View
-            android:id="@+id/overlay"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#80000000"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/tv_trending_article_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="@color/grey"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="1.0" />
+            app:layout_constraintTop_toBottomOf="@id/iv_trending_article_image"
+            tools:text="Europe" />
 
         <TextView
             android:id="@+id/tv_trending_article_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
-            android:layout_marginBottom="8dp"
-            android:maxLines="2"
+            android:layout_marginTop="4dp"
+            android:maxLines="3"
             android:ellipsize="end"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toTopOf="@id/tv_trending_article_source_name"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/tv_trending_article_category"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="Russian warship: Moskva sinks in Black Sea" />
+
+        <ImageView
+            android:id="@+id/iv_trending_article_source_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_trending_article_title"
+            tools:src="@drawable/logo_bbc_news" />
 
         <TextView
             android:id="@+id/tv_trending_article_source_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginStart="4dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/grey"
+            app:layout_constraintStart_toEndOf="@id/iv_trending_article_source_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_trending_article_source_icon"
+            app:layout_constraintBottom_toBottomOf="@id/iv_trending_article_source_icon"
             tools:text="BBC News" />
 
         <TextView
@@ -69,10 +83,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@android:color/white"
+            android:textColor="@color/grey"
             app:layout_constraintStart_toEndOf="@id/tv_trending_article_source_name"
-            app:layout_constraintTop_toTopOf="@id/tv_trending_article_source_name"
-            app:layout_constraintBottom_toBottomOf="@id/tv_trending_article_source_name"
+            app:layout_constraintTop_toTopOf="@id/iv_trending_article_source_icon"
+            app:layout_constraintBottom_toBottomOf="@id/iv_trending_article_source_icon"
             tools:text="4h ago" />
 
         <ImageView
@@ -83,8 +97,8 @@
             android:src="@drawable/ic_bookmark_border"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="2dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/iv_trending_article_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_trending_article_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

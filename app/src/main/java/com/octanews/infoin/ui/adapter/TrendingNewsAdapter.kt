@@ -32,6 +32,7 @@ class TrendingNewsAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val image: ImageView = itemView.findViewById(R.id.iv_trending_article_image)
+        private val category: TextView = itemView.findViewById(R.id.tv_trending_article_category)
         private val title: TextView = itemView.findViewById(R.id.tv_trending_article_title)
         private val sourceName: TextView = itemView.findViewById(R.id.tv_trending_article_source_name)
         private val time: TextView = itemView.findViewById(R.id.tv_trending_article_time)
@@ -42,6 +43,7 @@ class TrendingNewsAdapter(
             onItemClick: (NewsArticle) -> Unit,
             onBookmarkClick: (NewsArticle) -> Unit
         ) {
+            category.text = "Trending"
             title.text = article.title
 
             Glide.with(itemView.context)

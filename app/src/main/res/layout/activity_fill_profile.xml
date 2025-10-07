@@ -10,9 +10,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_blue"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="Fill your Profile" />
+        app:title="Fill your Profile"
+        app:titleTextColor="@android:color/white" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_profile"

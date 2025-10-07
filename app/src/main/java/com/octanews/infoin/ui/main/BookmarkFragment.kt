@@ -69,7 +69,6 @@ class BookmarkFragment : Fragment() {
             return
         }
 
-        // 'Listen' untuk perubahan real-time di data bookmark
         db.collection("users").document(uid).collection("bookmarks")
             .orderBy("pubDate", Query.Direction.DESCENDING) // Urutkan berdasarkan tanggal
             .addSnapshotListener { snapshots, error ->

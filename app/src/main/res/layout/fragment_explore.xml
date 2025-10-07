@@ -1,79 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ui.main.ExploreFragment">
 
-    <!-- Top gradient header (same design as bookmark header) -->
-    <FrameLayout
+    <!-- Header biru -->
+    <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@drawable/bg_explore_top">
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_blue"
+        android:gravity="start"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="15dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Logo putih -->
+        <ImageView
+            android:id="@+id/iv_logo_main"
+            android:layout_width="96dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_logo_main"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            android:contentDescription="App Logo"
+            app:tint="@android:color/white" />
+
+        <!-- Judul utama -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="start"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:layout_marginTop="8dp">
+            android:text="Explore Categories"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="9dp"
+            android:layout_marginBottom="4dp" />
 
-            <ImageView
-                android:id="@+id/imgLogoExplore"
-                android:layout_width="96dp"
-                android:layout_height="66dp"
-                android:src="@drawable/ic_logo_main"
-                android:contentDescription="InfoIn logo"
-                app:tint="@color/white" />
+        <!-- Deskripsi singkat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discover news by categories"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="9dp"
+            android:textSize="13sp" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Explore Categories"
-                android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textAlignment="viewStart"
-                android:layout_marginStart="10dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jelajahi kategori untuk mengelola akun, inventaris, mencari teknisi, atau mengajukan permintaan layanan."
-                android:textColor="@color/white"
-                android:textSize="13sp"
-                android:layout_marginTop="6dp"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:textAlignment="viewStart"
-                android:layout_marginStart="10dp" />
-
-        </LinearLayout>
-
-    </FrameLayout>
-
-    <!-- White rounded container overlapping the header -->
-    <androidx.cardview.widget.CardView
+    <!-- Konten utama (sedikit overlap ke header biru) -->
+    <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="-60dp"
-        app:cardCornerRadius="24dp"
-        app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="@color/white">
+        android:layout_below="@id/header"
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_rounded"
+        android:padding="12dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_categories"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:listitem="@layout/item_category_explore" />
-
-    </androidx.cardview.widget.CardView>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_categories"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_category_explore" />
 </LinearLayout>
+
+    </RelativeLayout>

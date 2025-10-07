@@ -69,15 +69,15 @@
             tools:src="@drawable/logo_bbc_news" />
 
         <TextView
-            android:id="@+id/tv_article_source"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            app:layout_constraintStart_toEndOf="@id/iv_article_source_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_article_source_icon"
-            app:layout_constraintBottom_toBottomOf="@id/iv_article_source_icon"
-            tools:text="BBC News" />
+        android:id="@+id/tv_article_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        app:layout_constraintStart_toEndOf="@id/iv_article_source_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_article_source_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_article_source_icon"
+        tools:text="BBC News" />
 
         <TextView
             android:id="@+id/tv_article_time"

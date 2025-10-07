@@ -7,231 +7,159 @@
     android:background="@android:color/white"
     tools:context=".ui.main.ProfileFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
+    <!-- Header biru -->
+    <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_profile_top_rounded"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:elevation="0dp"
-        app:liftOnScroll="false">
+        android:layout_height="150dp"
+        android:background="@drawable/bg_blue"
+        android:paddingTop="0dp"
+        android:layout_marginTop="-8dp">
 
-        <!-- Header container with rounded bottom -->
-        <FrameLayout
+        <TextView
+            android:id="@+id/tv_profile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="PROFILE"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_settings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings"
+            android:contentDescription="Settings"
+            app:tint="@android:color/white" />
+    </RelativeLayout>
+
+    <!-- Foto Profil dipindah keluar agar muncul di depan header -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/ic_profile_placeholder"
+        android:background="@android:color/white"
+        android:elevation="8dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+        app:strokeWidth="3dp"
+        app:strokeColor="@android:color/white" />
+
+    <!-- Konten utama putih rounded -->
+    <LinearLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="110dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_rounded"
+        android:paddingTop="70dp"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false">
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="zaizafun"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            tools:text="zaizafun" />
+
+        <!-- Full name -->
+        <TextView
+            android:id="@+id/tv_full_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            tools:text="Zaizafun Hanifah" />
+
+        <!-- Bio -->
+        <TextView
+            android:id="@+id/tv_bio"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@drawable/bg_profile_blue"
-            android:paddingTop="8dp"
-            android:clipToPadding="false"
-            android:clipChildren="false"
-            app:elevation="5dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            tools:text="Lorem ipsum is simply dummy text of the printing and typesetting industry." />
 
-            <!-- Centered title -->
-            <TextView
-                android:id="@+id/tv_profile_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="PROFILE"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:paddingTop="24dp"
-                android:gravity="center" />
-
-            <!-- Settings icon remains at top-right -->
-            <ImageView
-                android:id="@+id/iv_settings"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_settings"
-                android:layout_gravity="top|end"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:contentDescription="Settings"
-                app:tint="@color/white" />
-
-        </FrameLayout>
-
-        <!-- Profile content container -->
+        <!-- Tombol edit & website -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="@android:color/white"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingTop="50dp"
-            android:paddingBottom="16dp"
-            android:elevation="2dp">
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <!-- Profile Info Card -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp"
-                app:cardBackgroundColor="@android:color/white">
+            <Button
+                android:id="@+id/btn_edit_profile"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:text="Edit profile"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="8dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center_horizontal">
-
-                    <!-- Full Name -->
-                    <TextView
-                        android:id="@+id/tv_full_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        tools:text="zaizafun" />
-
-                    <!-- Username -->
-                    <TextView
-                        android:id="@+id/tv_username"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:textColor="@color/blue_500"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        tools:text="zaizafun" />
-
-                    <!-- Bio -->
-                    <TextView
-                        android:id="@+id/tv_bio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:paddingHorizontal="16dp"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/darker_gray"
-                        android:textSize="14sp"
-                        tools:text="No bio yet. Tap edit to add one." />
-
-                    <!-- Decorative divider -->
-                    <View
-                        android:layout_width="60dp"
-                        android:layout_height="2dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/blue_500" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- Action Buttons Card -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                app:cardBackgroundColor="@android:color/white">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Buttons Layout -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <!-- Edit Profile Button -->
-                        <Button
-                            android:id="@+id/btn_edit_profile"
-                            android:layout_width="0dp"
-                            android:layout_height="44dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/blue_500"
-                            android:text="Edit profile"
-                            android:textAllCaps="false"
-                            android:textColor="@android:color/white"
-                            android:textSize="14sp"
-                            app:cornerRadius="8dp" />
-
-                        <!-- Website Button -->
-                        <Button
-                            android:id="@+id/btn_website"
-                            style="@style/Widget.Material3.Button.OutlinedButton"
-                            android:layout_width="0dp"
-                            android:layout_height="44dp"
-                            android:layout_weight="1"
-                            android:text="Website"
-                            android:textAllCaps="false"
-                            android:textSize="14sp"
-                            app:cornerRadius="8dp"
-                            app:strokeColor="@color/blue_500"
-                            android:textColor="@color/blue_500" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+            <Button
+                android:id="@+id/btn_website"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Website"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="8dp" />
         </LinearLayout>
 
-        <!-- TabLayout for News and Recent (unchanged appearance) -->
+        <!-- Tab layout -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:background="@android:color/white"
-            app:tabGravity="fill"
             app:tabIndicatorColor="?attr/colorPrimary"
-            app:tabIndicatorHeight="2dp"
-            app:tabMode="fixed"
             app:tabSelectedTextColor="?attr/colorPrimary"
-            app:tabTextAppearance="@style/TextAppearance.AppCompat.Body2"
             app:tabTextColor="@android:color/darker_gray" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <!-- ViewPager -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_profile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/white" />
+    </LinearLayout>
 
-    <!-- Avatar removed from here and re-added at the end so it renders above content -->
-
-    <!-- ViewPager2 untuk konten tabs -->
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager_profile"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <!-- Overlapping circular avatar positioned above content -->
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/iv_profile"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:src="@drawable/ic_profile_placeholder"
-        android:background="@android:color/white"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginTop="60dp"
-        android:elevation="20dp"
-        android:translationZ="20dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        android:scaleType="centerCrop"
-        android:contentDescription="Profile avatar" />
-
-    <!-- Floating Action Button -->
+    <!-- FAB tetap di pojok bawah -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Add new post"
         android:src="@drawable/ic_add"
-        app:tint="@android:color/white" />
-
-    <!-- avatar is rendered inside the header FrameLayout now -->
+        app:tint="@android:color/white"
+        android:contentDescription="Add new post" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

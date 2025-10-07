@@ -11,8 +11,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/bg_blue"
         app:navigationIcon="@drawable/ic_close"
-        app:title="Edit Profile" />
+        app:title="Edit Profile"
+        app:titleTextColor="@android:color/white" />
 
     <ScrollView
         android:layout_width="match_parent"

@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InfoIn">
         <activity
+            android:name=".ui.auth.HelpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.SecurityActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.OnboardingActivity"
             android:exported="true">
             <intent-filter>
@@ -26,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.auth.EditProfileActivity"
             android:exported="false" />
@@ -54,9 +59,7 @@
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.App.Starting">
-
-        </activity> <!-- Register -->
+            android:theme="@style/Theme.App.Starting" /> <!-- Register -->
         <activity android:name=".ui.auth.RegisterActivity" /> <!-- MainActivity (bukan launcher) -->
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.auth.SettingsActivity" />

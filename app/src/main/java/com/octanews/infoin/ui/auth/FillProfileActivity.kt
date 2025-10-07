@@ -61,7 +61,6 @@ class FillProfileActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        // --- LISTENER FOTO PROFIL (DIAKTIFKAN KEMBALI) ---
         binding.ivProfile.setOnClickListener {
             showImageSourceDialog()
         }

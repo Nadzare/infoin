@@ -13,7 +13,6 @@ import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.octanews.infoin.DetailActivity // Pastikan Activity ini sudah dibuat
-import com.octanews.infoin.MainActivity
 import com.octanews.infoin.data.model.NewsArticle
 import com.octanews.infoin.data.model.NewsDataResponse
 import com.octanews.infoin.data.remote.RetrofitClient
@@ -102,11 +101,6 @@ class HomeFragment : Fragment() {
             startActivity(Intent(activity, SearchActivity::class.java))
         }
 
-        // Listener untuk Profile Icon
-        binding.ivNotification.setOnClickListener {
-            (activity as? MainActivity)?.switchToProfile()
-        }
-
         // Listener untuk "See All" Trending
         binding.tvSeeAllTrending.setOnClickListener {
             openNewsList("Trending News", "top")
@@ -182,10 +176,8 @@ class HomeFragment : Fragment() {
             .enqueue(object : Callback<NewsDataResponse> {
                 override fun onResponse(call: Call<NewsDataResponse>, response: Response<NewsDataResponse>) {
                     binding.progressBar.visibility = View.GONE
-                    Log.d("HomeFragment", "Response: ${response.code()} ${response.message()}")
                     if (response.isSuccessful) {
                         response.body()?.results?.let { articlesResult ->
-                            Log.d("HomeFragment", "Articles count: ${articlesResult.size}")
                             trendingArticles.clear()
                             trendingArticles.addAll(articlesResult.take(5))
                             trendingAdapter.notifyDataSetChanged()
@@ -193,14 +185,9 @@ class HomeFragment : Fragment() {
                             latestArticles.clear()
                             latestArticles.addAll(articlesResult)
                             latestAdapter.notifyDataSetChanged()
-                        } ?: Log.d("HomeFragment", "Response body or results null")
-                    } else {
-                        if (response.code() == 429) {
-                            // Too many requests, use mock data without toast
-                            loadMockData()
-                        } else {
-                            Toast.makeText(context, "Gagal: ${response.code()} ${response.message()}", Toast.LENGTH_LONG).show()
                         }
+                    } else {
+                        Toast.makeText(context, "Gagal: ${response.code()} ${response.message()}", Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<NewsDataResponse>, t: Throwable) {
@@ -244,59 +231,6 @@ class HomeFragment : Fragment() {
             .set(article)
             .addOnSuccessListener { Toast.makeText(context, "Berita disimpan!", Toast.LENGTH_SHORT).show() }
             .addOnFailureListener { e -> Toast.makeText(context, "Gagal menyimpan: ${e.message}", Toast.LENGTH_SHORT).show() }
-    }
-
-    private fun loadMockData() {
-        val mockArticles = listOf(
-            NewsArticle(
-                title = "Breaking News: Major Event Shakes the World",
-                link = "https://example.com/1",
-                description = "A significant event has occurred that impacts global affairs.",
-                image_url = "https://picsum.photos/300/200?random=1",
-                source_id = "CNN",
-                pubDate = "2023-10-05T10:00:00Z"
-            ),
-            NewsArticle(
-                title = "Technology Breakthrough in AI Development",
-                link = "https://example.com/2",
-                description = "New advancements in artificial intelligence promise revolutionary changes.",
-                image_url = "https://picsum.photos/300/200?random=2",
-                source_id = "TechCrunch",
-                pubDate = "2023-10-05T09:00:00Z"
-            ),
-            NewsArticle(
-                title = "Sports Championship Ends in Surprise",
-                link = "https://example.com/3",
-                description = "An unexpected winner takes the championship title.",
-                image_url = "https://picsum.photos/300/200?random=3",
-                source_id = "ESPN",
-                pubDate = "2023-10-05T08:00:00Z"
-            ),
-            NewsArticle(
-                title = "Health Study Reveals Important Findings",
-                link = "https://example.com/4",
-                description = "Recent research provides new insights into public health.",
-                image_url = "https://picsum.photos/300/200?random=4",
-                source_id = "WHO",
-                pubDate = "2023-10-05T07:00:00Z"
-            ),
-            NewsArticle(
-                title = "Economic Report Shows Positive Trends",
-                link = "https://example.com/5",
-                description = "Latest economic data indicates growth and stability.",
-                image_url = "https://picsum.photos/300/200?random=5",
-                source_id = "BBC",
-                pubDate = "2023-10-05T06:00:00Z"
-            )
-        )
-
-        trendingArticles.clear()
-        trendingArticles.addAll(mockArticles.take(5))
-        trendingAdapter.notifyDataSetChanged()
-
-        latestArticles.clear()
-        latestArticles.addAll(mockArticles)
-        latestAdapter.notifyDataSetChanged()
     }
 
     private fun convertCountryNameToCodes(countryName: String): Pair<String, String> {

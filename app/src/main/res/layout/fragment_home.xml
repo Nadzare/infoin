@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_background_gradient"
+    android:background="@android:color/white"
     tools:context=".ui.main.HomeFragment">
 
-    <!-- Top header with gradient background (matches Bookmark style) -->
+    <!-- Top header with gradient background -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/custom_toolbar"
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:layout_marginTop="30dp"
             app:tint="@color/white" />
 
-        <!-- Notification shown as outlined circle to the right -->
+        <!-- Profile shown as outlined circle to the right -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="44dp"
             android:layout_height="44dp"
@@ -132,7 +132,7 @@
             android:orientation="vertical"
             android:paddingBottom="24dp">
 
-            <!-- Trending Section - Simple & Clean -->
+            <!-- Trending Section - Simple &amp; Clean -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

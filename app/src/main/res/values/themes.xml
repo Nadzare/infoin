@@ -1,16 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Tema utama aplikasi -->
+
     <style name="Theme.InfoIn" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Warna utama -->
+
         <item name="colorPrimary">@color/blue_500</item>
         <item name="colorPrimaryVariant">@color/blue_700</item>
         <item name="colorOnPrimary">@color/white</item>
 
-        <!-- Warna background -->
+
         <item name="android:windowBackground">@color/white</item>
 
-        <!-- Toolbar / status bar -->
+
         <item name="android:statusBarColor" tools:targetApi="l">@color/blue_700</item>
         <item name="android:navigationBarColor">@color/blue_500</item>
     </style>
@@ -18,6 +18,14 @@
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@drawable/bottom_nav_background</item>
+        <item name="itemIconTint">@color/bottom_nav_color_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_color_selector</item>
+        <item name="itemRippleColor">@color/blue_200</item>
+        <item name="elevation">8dp</item>
     </style>
 
     <style name="BottomNavigationView.ActiveIndicator" parent="">
