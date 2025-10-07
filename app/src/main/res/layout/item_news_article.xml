@@ -64,7 +64,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="16dp"
             app:layout_constraintBottom_toBottomOf="@id/iv_article_image"
             app:layout_constraintStart_toEndOf="@id/iv_article_image"
             tools:src="@drawable/logo_bbc_news" />

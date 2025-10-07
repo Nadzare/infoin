@@ -31,11 +31,10 @@
             android:gravity="center">
 
         <!-- Logo -->
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/ic_logo_main"
-            android:layout_marginBottom="16dp" />
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_logo_main" />
 
         <!-- Title -->
         <TextView
@@ -46,8 +45,7 @@
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:gravity="center"
-            android:paddingTop="32dp"/>
+            android:gravity="center" />
 
         <!-- Subtitle -->
         <TextView

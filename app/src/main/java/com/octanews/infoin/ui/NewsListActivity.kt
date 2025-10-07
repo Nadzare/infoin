@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.octanews.infoin.DetailActivity
 import com.octanews.infoin.data.model.NewsArticle
 import com.octanews.infoin.data.model.NewsDataResponse
@@ -48,6 +50,8 @@ class NewsListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+
         newsAdapter = LatestNewsAdapter(
             articles,
             // Ini adalah parameter onItemClick
@@ -57,11 +61,13 @@ class NewsListActivity : AppCompatActivity() {
                 }
                 startActivity(intent)
             },
-            // Ini adalah parameter onBookmarkClick yang kurang
+            // Ini adalah parameter onBookmarkClick
             onBookmarkClick = { article ->
-                // Untuk halaman ini, kita bisa kosongkan atau beri Toast
-                // karena fungsi utama bookmark ada di HomeFragment
-                Toast.makeText(this, "Bookmark dari sini belum diimplementasikan", Toast.LENGTH_SHORT).show()
+                if (uid != null) {
+                    saveBookmark(uid, article)
+                } else {
+                    Toast.makeText(this, "Silakan login untuk menyimpan bookmark", Toast.LENGTH_SHORT).show()
+                }
             }
         )
         binding.rvNewsList.apply {
@@ -95,5 +101,16 @@ class NewsListActivity : AppCompatActivity() {
                     Toast.makeText(this@NewsListActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
+
+    private fun saveBookmark(uid: String, article: NewsArticle) {
+        val db = FirebaseFirestore.getInstance()
+        val documentId = article.link.hashCode().toString()
+
+        db.collection("users").document(uid)
+            .collection("bookmarks").document(documentId)
+            .set(article)
+            .addOnSuccessListener { Toast.makeText(this, "Berita disimpan!", Toast.LENGTH_SHORT).show() }
+            .addOnFailureListener { e -> Toast.makeText(this, "Gagal menyimpan: ${e.message}", Toast.LENGTH_SHORT).show() }
     }
 }
