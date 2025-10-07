@@ -43,11 +43,13 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
-        setHasOptionsMenu(true)
-
         setupViewPagerAndTabs()
         loadUserProfile()
+
+        // Settings icon click
+        binding.ivSettings.setOnClickListener {
+            startActivity(Intent(activity, SettingsActivity::class.java))
+        }
 
         // --- PERUBAHAN 2: Ganti OnClickListener ---
         binding.btnEditProfile.setOnClickListener {
@@ -80,9 +82,6 @@ class ProfileFragment : Fragment() {
                     val username = document.getString("username")
                     val website = document.getString("website")
 
-                    // Set toolbar title konsisten 'Profil'
-                    (activity as? AppCompatActivity)?.supportActionBar?.title = getString(R.string.profile)
-
                     binding.tvFullName.text = fullName
                     binding.tvUsername.text = if (!username.isNullOrEmpty()) "@$username" else ""
                     binding.tvBio.text = bio ?: "No bio yet. Tap edit to add one."
@@ -112,20 +111,6 @@ class ProfileFragment : Fragment() {
             }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.profile_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> {
-                startActivity(Intent(activity, SettingsActivity::class.java))
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -13,6 +13,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.octanews.infoin.DetailActivity // Pastikan Activity ini sudah dibuat
+import com.octanews.infoin.MainActivity
 import com.octanews.infoin.data.model.NewsArticle
 import com.octanews.infoin.data.model.NewsDataResponse
 import com.octanews.infoin.data.remote.RetrofitClient
@@ -99,6 +100,11 @@ class HomeFragment : Fragment() {
         // Listener untuk Search Bar
         binding.searchCard.setOnClickListener {
             startActivity(Intent(activity, SearchActivity::class.java))
+        }
+
+        // Listener untuk Profile Icon
+        binding.ivNotification.setOnClickListener {
+            (activity as? MainActivity)?.switchToProfile()
         }
 
         // Listener untuk "See All" Trending

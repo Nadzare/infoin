@@ -59,4 +59,9 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
+    // Fungsi untuk berpindah ke profile
+    fun switchToProfile() {
+        binding.bottomNavigation.selectedItemId = R.id.navigation_profile
+    }
 }

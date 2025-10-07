@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_category_top"
         android:title="Home" />
     <item
         android:id="@+id/navigation_explore"
@@ -10,7 +10,7 @@
         android:title="Explore" />
     <item
         android:id="@+id/navigation_bookmark"
-        android:icon="@drawable/ic_bookmark"
+        android:icon="@drawable/ic_bookmark_border"
         android:title="Bookmark" />
     <item
         android:id="@+id/navigation_profile"

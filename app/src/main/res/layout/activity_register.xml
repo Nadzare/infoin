@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Background Image -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_register"
+        android:scaleType="centerCrop" />
+
+    <!-- Semi-transparent blue overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#60000080" />
+
+    <!-- Content Container -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_logo_main"
+            android:layout_marginBottom="10dp" />
 
         <!-- Title -->
         <TextView
@@ -19,9 +45,9 @@
             android:text="Create Account"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/blue_500"
-            android:gravity="start"
-            android:paddingTop="32dp"/>
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:paddingTop="2dp"/>
 
         <!-- Subtitle -->
         <TextView
@@ -30,8 +56,9 @@
             android:layout_height="wrap_content"
             android:text="Fill your information below"
             android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="4dp"/>
+            android:textColor="@android:color/white"
+            android:layout_marginTop="4dp"
+            android:gravity="center"/>
 
         <!-- Name -->
         <com.google.android.material.textfield.TextInputLayout
@@ -40,13 +67,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Full Name">
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:hintEnabled="false"
+            app:boxStrokeColor="@android:color/white"
+            app:boxBackgroundColor="#CCFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"/>
+                android:hint="Full Name"
+                android:inputType="textPersonName"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email -->
@@ -56,13 +89,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
-            android:layout_marginTop="12dp">
+            android:layout_marginTop="12dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:hintEnabled="false"
+            app:boxStrokeColor="@android:color/white"
+            app:boxBackgroundColor="#CCFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password -->
@@ -73,13 +113,20 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:layout_marginTop="12dp"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:hintEnabled="false"
+            app:boxStrokeColor="@android:color/white"
+            app:boxBackgroundColor="#CCFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Confirm Password -->
@@ -90,13 +137,20 @@
             android:layout_height="wrap_content"
             android:hint="Confirm Password"
             android:layout_marginTop="12dp"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:hintEnabled="false"
+            app:boxStrokeColor="@android:color/white"
+            app:boxBackgroundColor="#CCFFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Register button -->
@@ -105,10 +159,10 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_marginTop="24dp"
-            android:backgroundTint="@color/blue_500"
+            android:backgroundTint="@android:color/white"
             android:text="Register"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
+            android:textColor="@color/blue_500"
             android:textSize="16sp"/>
 
         <!-- ProgressBar -->
@@ -130,6 +184,7 @@
             android:textSize="14sp"
             android:gravity="center"
             android:layout_marginTop="22dp"
-            android:textColor="@color/blue_500"/>
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </ScrollView>
+</RelativeLayout>

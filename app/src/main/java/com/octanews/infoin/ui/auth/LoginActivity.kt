@@ -91,9 +91,6 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.tvForgot.setOnClickListener { showResetPasswordDialog() }
         binding.btnGoogle.setOnClickListener { signInWithGoogle() }
-        binding.btnFacebook.setOnClickListener {
-            Toast.makeText(this, "Facebook Sign-In belum di-setup", Toast.LENGTH_SHORT).show()
-        }
     }
 
     // --- FUNGSI INTI BARU UNTUK NAVIGASI ---

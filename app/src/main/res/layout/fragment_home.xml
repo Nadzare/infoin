@@ -11,23 +11,23 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/custom_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="115dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:background="@drawable/bg_explore_top"
+        android:background="@drawable/bg_blue"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_logo_main"
-            android:layout_width="140dp"
-            android:layout_height="48dp"
+            android:layout_width="96dp"
+            android:layout_height="66dp"
             android:src="@drawable/ic_logo_main"
             android:adjustViewBounds="true"
             android:scaleType="fitStart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="App Logo"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             app:tint="@color/white" />
 
         <!-- Notification shown as outlined circle to the right -->
@@ -49,9 +49,9 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_notification"
-                android:tint="@color/white"
-                android:contentDescription="Notifications" />
+                android:src="@drawable/ic_profile"
+                android:contentDescription="Profile"
+                app:tint="@color/white" />
         </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
