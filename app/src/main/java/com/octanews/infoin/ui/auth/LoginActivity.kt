@@ -51,19 +51,21 @@ class LoginActivity : AppCompatActivity() {
         installSplashScreen()
 
         super.onCreate(savedInstanceState)
+
+        // Inisialisasi binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
-
-        // Konfigurasi Google Sign-In
+        // Inisialisasi GoogleSignInOptions sebelum digunakan
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
+
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         // --- Atur semua listener ---
+        auth = FirebaseAuth.getInstance()
         setupListeners()
     }
 
