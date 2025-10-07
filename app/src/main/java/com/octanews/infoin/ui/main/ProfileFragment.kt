@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.octanews.infoin.R
 import com.octanews.infoin.databinding.FragmentProfileBinding
+import androidx.appcompat.widget.Toolbar
 import com.octanews.infoin.ui.adapter.ProfileTabsAdapter
 import com.octanews.infoin.ui.auth.EditProfileActivity
 import com.octanews.infoin.ui.auth.SettingsActivity
@@ -43,7 +44,9 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
+    // set toolbar from layout by finding it on the binding root (some builds may not generate binding.toolbar)
+    val toolbar = binding.root.findViewById<Toolbar>(R.id.toolbar)
+    (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
         setHasOptionsMenu(true)
 
         setupViewPagerAndTabs()
