@@ -67,8 +67,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_chevron_right"
-                android:tint="@android:color/darker_gray"
-                app:tint="@android:color/darker_gray" />
+                android:tint="@android:color/white"
+                app:tint="@android:color/white" />
         </LinearLayout>
 
         <!-- Help Item -->
@@ -104,8 +104,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_chevron_right"
-                android:tint="@android:color/darker_gray"
-                app:tint="@android:color/darker_gray" />
+                android:tint="@android:color/white"
+                app:tint="@android:color/white" />
         </LinearLayout>
 
 
