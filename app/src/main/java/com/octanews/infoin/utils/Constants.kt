@@ -2,7 +2,7 @@ package com.octanews.infoin.utils
 
 object Constants {
     // GANTI DENGAN API KEY DARI NEWSDATA.IO
-    const val API_KEY = "pub_5361dff2fd6a413dbe02325a647d9da2"
+    const val API_KEY = "pub_3eaccb990dc84054a99819b6cc7a96dd"
 
     val CATEGORIES = listOf(
         "Top",

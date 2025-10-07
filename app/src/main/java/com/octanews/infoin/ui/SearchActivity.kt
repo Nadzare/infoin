@@ -24,7 +24,7 @@ class SearchActivity : AppCompatActivity() {
     private val articles = mutableListOf<NewsArticle>()
 
     // GANTI DENGAN API KEY DARI NEWSDATA.IO
-    private val apiKey = "pub_5361dff2fd6a413dbe02325a647d9da2"
+    private val apiKey = "pub_3eaccb990dc84054a99819b6cc7a96dd"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
