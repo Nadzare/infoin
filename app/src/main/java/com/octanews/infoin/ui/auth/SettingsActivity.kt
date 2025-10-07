@@ -19,36 +19,26 @@ class SettingsActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        // Atur listener untuk tombol kembali di toolbar
         binding.toolbar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
 
-        // --- INI BAGIAN YANG DISESUAIKAN ---
-        // Listener sekarang dipasang di 'item_logout' (LinearLayout)
         binding.itemLogout.setOnClickListener {
-            // Proses Logout dari Firebase
             auth.signOut()
-
             Toast.makeText(this, "Logout successful", Toast.LENGTH_SHORT).show()
 
-            // Arahkan kembali ke halaman Login
             val intent = Intent(this, LoginActivity::class.java)
-            // Hapus semua activity sebelumnya agar user tidak bisa kembali (back)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
         }
 
-        // Kamu bisa tambahkan listener untuk item lain di sini
-        binding.itemNotification.setOnClickListener {
-            Toast.makeText(this, "Fitur Notifikasi belum dibuat", Toast.LENGTH_SHORT).show()
-        }
-
         binding.itemSecurity.setOnClickListener {
-            Toast.makeText(this, "Fitur Keamanan belum dibuat", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, SecurityActivity::class.java))
         }
 
-        // ... dan seterusnya
+        binding.itemHelp.setOnClickListener {
+            startActivity(Intent(this, HelpActivity::class.java))
+        }
     }
 }

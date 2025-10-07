@@ -11,7 +11,6 @@ import com.octanews.infoin.R
 import com.octanews.infoin.databinding.ActivitySelectNewsSourceBinding
 import com.octanews.infoin.ui.adapter.NewsSourceAdapter
 
-// Data class simpel untuk menyimpan data sumber berita
 data class NewsSource(val name: String, val logoName: String)
 
 class SelectNewsSourceActivity : AppCompatActivity() {
@@ -52,7 +51,6 @@ class SelectNewsSourceActivity : AppCompatActivity() {
         }
 
         adapter = NewsSourceAdapter(sourceList)
-        // Gunakan GridLayoutManager untuk tampilan 3 kolom
         binding.rvNewsSources.layoutManager = GridLayoutManager(this, 3)
         binding.rvNewsSources.adapter = adapter
     }
@@ -64,7 +62,6 @@ class SelectNewsSourceActivity : AppCompatActivity() {
 
         userRef.update("followedSources", sources)
             .addOnSuccessListener {
-                // Lanjut ke halaman berikutnya
                 val intent = Intent(this, FillProfileActivity::class.java)
                 startActivity(intent)
             }

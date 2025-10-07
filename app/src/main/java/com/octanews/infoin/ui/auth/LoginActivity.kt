@@ -51,19 +51,10 @@ class LoginActivity : AppCompatActivity() {
         installSplashScreen()
 
         super.onCreate(savedInstanceState)
-        auth = FirebaseAuth.getInstance()
-        // Jika user sudah login, langsung ke MainActivity
-        if (auth.currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
-            return
-        }
-        // Jika belum login, tampilkan form login
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
 
         // Konfigurasi Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
