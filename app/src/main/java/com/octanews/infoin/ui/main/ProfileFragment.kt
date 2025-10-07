@@ -43,16 +43,17 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as? AppCompatActivity)?.setSupportActionBar(binding.toolbar)
+        // Workaround: gunakan findViewById jika binding.toolbar belum tersedia
+        val toolbar = view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
         setHasOptionsMenu(true)
 
         setupViewPagerAndTabs()
         loadUserProfile()
 
-        // --- PERUBAHAN 2: Ganti OnClickListener ---
         binding.btnEditProfile.setOnClickListener {
             val intent = Intent(activity, EditProfileActivity::class.java)
-            editProfileLauncher.launch(intent) // Gunakan launcher, bukan startActivity
+            editProfileLauncher.launch(intent)
         }
 
         binding.btnSettings.setOnClickListener {
